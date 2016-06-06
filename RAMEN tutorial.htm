@@ -1,0 +1,647 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<title>RAMEN Tutorial</title>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:0in;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+a:link, span.MsoHyperlink
+	{color:#0563C1;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#954F72;
+	text-decoration:underline;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:.5in;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:.5in;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	line-height:107%;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link="#0563C1" vlink="#954F72">
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>The Reliable
+AutoMation Engine for Networking (RAMEN) is a suite of python apps for
+executing scripts against Cisco IOS / IOS-XE devices. RAMEN provides a rich
+feature set for reliably executing commands and validating the returned output.
+RAMEN is written in Python 2.7 for use under Windows. It leverages Paramiko and
+PyCrypto for SSH access to devices. RAMEN is released under the GPL. </p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>Features of
+RAMEN:</p>
+
+<p class=MsoListParagraphCxSpFirst style='margin-bottom:0in;margin-bottom:.0001pt;
+text-indent:-.25in'><span style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>RAMEN can execute a command script against a list of device IPs /
+hostnames.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-bottom:0in;margin-bottom:
+.0001pt;text-indent:-.25in'><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>RAMEN will stop execution if an error is encountered while in
+config mode. </p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-bottom:0in;margin-bottom:
+.0001pt;text-indent:-.25in'><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>RAMEN logs all output returned by each command along with the
+success/fail status of the command.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-bottom:0in;margin-bottom:
+.0001pt;text-indent:-.25in'><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>RAMEN can call scripts within scripts </p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-bottom:0in;margin-bottom:
+.0001pt;text-indent:-.25in'><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>RAMEN can parse command output looking for the information you’re
+interested in.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-bottom:0in;margin-bottom:
+.0001pt;text-indent:-.25in'><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>RAMEN can use this parsed output to verify network status and
+halt or continue script execution.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-bottom:0in;margin-bottom:
+.0001pt;text-indent:-.25in'><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>RAMEN can email the execution results to you; always or just on
+failures.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-bottom:0in;margin-bottom:
+.0001pt;text-indent:-.25in'><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>RAMEN can identify config problems and leverage “fix it” scripts
+to correct the issues</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-bottom:0in;margin-bottom:
+.0001pt;text-indent:-.25in'><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>RAMEN’s batch mode can be used to run multiple unique commands on
+a series of devices</p>
+
+<p class=MsoListParagraphCxSpLast style='margin-bottom:0in;margin-bottom:.0001pt;
+text-indent:-.25in'><span style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>RAMEN can be executed on a scheduled basis via the Windows task
+scheduler.</p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:.25in;margin-bottom:.0001pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>Limitations
+of RAMEN:</p>
+
+<p class=MsoListParagraphCxSpFirst style='margin-bottom:0in;margin-bottom:.0001pt;
+text-indent:-.25in'><span style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>RAMEN currently works only with IOS/IOS-XE. Do not use it with
+ASAs, WLCs, IOS-XR, etc. NX-OS has not been extensively tested.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-bottom:0in;margin-bottom:
+.0001pt;text-indent:-.25in'><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>RAMEN requires a common login for all devices. Unique credentials
+per device is not currently supported.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-bottom:0in;margin-bottom:
+.0001pt;text-indent:-.25in'><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>RAMEN only uses SSH with password based authentication. Telnet
+and SSH with certificate based authentication are not currently supported.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-bottom:0in;margin-bottom:
+.0001pt;text-indent:-.25in'><span style='font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>RAMEN is single-threaded and only executes against one device at
+a time.</p>
+
+<p class=MsoListParagraphCxSpLast style='margin-bottom:0in;margin-bottom:.0001pt;
+text-indent:-.25in'><span style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>RAMEN is written for use under Windows. Linux has not been
+tested.</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>&nbsp;</p>
+
+<span style='font-size:11.0pt;line-height:107%;font-family:"Calibri",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>RAMEN v1.0
+Tutorial</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>-Getting
+started with Python and Paramiko</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>RAMEN is
+written in Python. To use it, you will need to install Python, PyCrypto, pip,
+and Paramiko. Google for links to download each item. </p>
+
+<p class=MsoListParagraphCxSpFirst style='margin-bottom:0in;margin-bottom:.0001pt;
+text-indent:-.25in'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Download Notepad++ or another Python editor. </p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-bottom:0in;margin-bottom:
+.0001pt;text-indent:-.25in'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Download and install Python 2.7 for Windows</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-bottom:0in;margin-bottom:
+.0001pt;text-indent:-.25in'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Download and install pycrypto-2.6.1.win32-py2.7.exe </p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-bottom:0in;margin-bottom:
+.0001pt;text-indent:-.25in'>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Download get-pip.py </p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-bottom:0in;margin-bottom:
+.0001pt;text-indent:-.25in'>5.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Run “C:\Python27\python.exe get-pip.py” to install pip</p>
+
+<p class=MsoListParagraphCxSpLast style='margin-bottom:0in;margin-bottom:.0001pt;
+text-indent:-.25in'>6.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Run “C:\Python27\Scripts\pip install paramiko” to install Paramiko</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>-Installing
+RAMEN</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>Download the
+latest release of RAMEN from Github</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>Unzip RAMEN
+as a folder under C:\Python27</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>Tutorial:</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>-Do
+something simple with RAMEN:</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>This
+tutorial will collect “show version” and “show inventory” from devices you
+specify.</p>
+
+<p class=MsoListParagraphCxSpFirst style='margin-bottom:0in;margin-bottom:.0001pt;
+text-indent:-.25in'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Browse to C:\Python27\RAMEN </p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-bottom:0in;margin-bottom:
+.0001pt;text-indent:-.25in'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Open devices.txt with a text editor of your choice</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-bottom:0in;margin-bottom:
+.0001pt;text-indent:-.25in'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Enter the IPs or hostnames of devices you want to execute commands
+against and save the file. Each entry should be on a separate line.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-bottom:0in;margin-bottom:
+.0001pt;text-indent:-.25in'>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Open a command prompt and navigate to C:\Python27\RAMEN</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-bottom:0in;margin-bottom:
+.0001pt;text-indent:-.25in'>5.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Execute: python RAMEN-Exec.py -devices devices.txt -script script.txt</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-bottom:0in;margin-bottom:
+.0001pt;text-indent:-.25in'>6.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Enter the username and password required to login to the devices. A
+common user/pass for all devices is required by this tool. </p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-bottom:0in;margin-bottom:
+.0001pt;text-indent:-.25in'>7.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>RAMEN-Exec will login to each device, execute “show version” and “show
+inventory”, and save the output to lastrun.csv. </p>
+
+<p class=MsoListParagraphCxSpLast style='margin-bottom:0in;margin-bottom:.0001pt;
+text-indent:-.25in'>8.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Open C:\Python27\RAMEN\lastrun.csv and inspect the output. Notice the
+Success/Failure status of each command. The command output is saved in the
+right-most column. It may be necessary to toggle text wrapping to see the output.
+</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>-Do
+something cool with RAMEN:</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>This
+tutorial will leverage RAMEN-Parser to find “dumb” switches on the network. It
+will do this by finding ports where there are multiple MACs known excluding
+ports where a CDP neighbor is seen and excluding MACs with a vendor OUI
+belonging to Avaya or VMware.</p>
+
+<p class=MsoListParagraphCxSpFirst style='margin-bottom:0in;margin-bottom:.0001pt;
+text-indent:-.25in'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Edit devices.txt and enter the IPs or hostnames of the IOS switches in
+your environment. Save the file.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-bottom:0in;margin-bottom:
+.0001pt;text-indent:-.25in'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Edit script.txt and enter “show cdp neighbors” and “show mac
+address-table” on two separate lines. Save the file. </p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-bottom:0in;margin-bottom:
+.0001pt;text-indent:-.25in'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Open exam.txt. Notice it contains the filename sans extension of a
+python module located in RAMEN\ParserModules. Leave it unchanged for this
+exercise.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-bottom:0in;margin-bottom:
+.0001pt;text-indent:-.25in'>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Execute: python RAMEN-Exec.py -devices devices.txt -script script.txt -parse
+“-input lastrun.csv -exam exam.txt -output results.csv”</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-bottom:0in;margin-bottom:
+.0001pt'>Tip: If you receive an argument error, try deleting and re-adding the
+quotation marks. Occasionally hidden chars are picked up during copy paste
+operations. Also, do not specify filenames with spaces in them. Spaces require
+an additional set of quotes which Python’s built-in libraries won’t parse
+correctly.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-bottom:0in;margin-bottom:
+.0001pt;text-indent:-.25in'>5.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>RAMEN-Exec will login to each switch and collect the list of CDP
+neighbors and known MAC addresses. Once finished, RAMEN-Parser will examine
+this collected information with the netgear_hunter.py module and create the
+results.csv file. Feel free to edit Netgear_hunter.py to further customize the
+behavior of this parser. </p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-bottom:0in;margin-bottom:
+.0001pt;text-indent:-.25in'>6.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Open results.csv. The validity column indicates “Failed” for switches
+where more than one MAC was seen on a port. The comment column indicates the
+total number of extra MACs found on that switch and the spurious column gives
+the list of individual interfaces where multiple MACs were found. Don’t forget
+to toggle text wrapping if you don’t see the output.</p>
+
+<p class=MsoListParagraphCxSpLast style='margin-bottom:0in;margin-bottom:.0001pt;
+text-indent:-.25in'>7.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Repeat this exercise to find half duplex ports in your environment. Edit
+script.txt to contain the show interfaces command and edit exam.txt to contain
+the line “half_duplex_finder” (no quotes). </p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>-Use RAMEN
+to find and fix problems:</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>For this
+demo, you’ll need a few lab devices to experiment on. On some of your lab
+devices, disable the password encryption service (no service
+password-encryption). We’ll use RAMEN to find and automatically fix this config
+issue on the impacted devices. Since we’ll be performing a configuration
+operation, use only lab devices. </p>
+
+<p class=MsoListParagraphCxSpFirst style='margin-bottom:0in;margin-bottom:.0001pt;
+text-indent:-.25in'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Open devices.txt and enter the IPs of your IOS lab devices. Save the
+file. </p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-bottom:0in;margin-bottom:
+.0001pt;text-indent:-.25in'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Open script.txt and enter “show running-config”. This tutorial assumes
+you login to devices with privilege level 15 and do not need to enable. If
+enabling is required, add the enable command and password on separate lines to
+the script. Save the file. </p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-bottom:0in;margin-bottom:
+.0001pt;text-indent:-.25in'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Open exam.txt and delete its contents. Add the text “global_config_item_template”
+on a line by itself. The global_config_item_template is a file you can clone
+and modify to search for global configuration commands on your devices. For
+this activity, it has already been configured to search for “service
+password-encryption”. Save the file.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-bottom:0in;margin-bottom:
+.0001pt;text-indent:-.25in'>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Execute: python RAMEN-Exec.py -devices devices.txt -script script.txt
+-parse “-input lastrun.csv -exam exam.txt -output results.csv” </p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-bottom:0in;margin-bottom:
+.0001pt;text-indent:-.25in'>5.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>RAMEN-Exec will collect the running config of your lab devices and pass
+this to RAMEN-Parser. The Parser will analyze the running-config with the
+“global_config_template.py” module. It will also populate the “fixit” field
+with the name of a script to correct this issue. </p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-bottom:0in;margin-bottom:
+.0001pt;text-indent:-.25in'>6.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Execute: python RAMEN-Exec.py -fixit results.csv</p>
+
+<p class=MsoListParagraphCxSpLast style='margin-bottom:0in;margin-bottom:.0001pt;
+text-indent:-.25in'>7.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>RAMEN-Exec will iterate through results.csv. For each “Failed” line, if
+a fixit script is defined, that script will be executed. Fixit scripts are
+saved in RAMEN\FixitScripts. The included script assumes that enabling is not
+required. If it is required, edit service_password_encryption_config.txt script
+file. </p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>-Build your
+own examination module</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>You can use
+RAMEN to enforce configuration standards in your network. Modify the template
+modules to meet your needs. </p>
+
+<p class=MsoListParagraphCxSpFirst style='margin-bottom:0in;margin-bottom:.0001pt;
+text-indent:-.25in'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Browse to the RAMEN\ParserModules folder.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-bottom:0in;margin-bottom:
+.0001pt;text-indent:-.25in'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>There are some templates provided. Clone and modify them or write your
+own from scratch.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+margin-bottom:0in;margin-left:1.0in;margin-bottom:.0001pt;text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>The global_config_item_template.py script looks for an exact line
+match in the output passed to it. Although intended for matching config
+commands, it can be used for other things. Make copies of this file and modify
+them to match the commands that are part of your organization’s standard config
+template. </p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+margin-bottom:0in;margin-left:1.0in;margin-bottom:.0001pt;text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>The sub_config_item_template.py script looks for a subcommand in
+the indented text under a parent command. For example, it can be used to
+inspect the configuration of interfaces or routing processes. Make multiple
+copies of the file and check for standard sub-commands in your organization’s
+config templates.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+margin-bottom:0in;margin-left:1.0in;margin-bottom:.0001pt;text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>The string_finder_template.py script checks to see if a specific
+string is in the command output supplied to it. This module does not perform an
+exact line match unlike the global_config_item_template script giving you more
+flexibility in its use. </p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+margin-bottom:0in;margin-left:1.0in;margin-bottom:.0001pt;text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>The acl_template.py script checks to see if a specific ACL
+exists, is applied, and contains the correct entries. Copy it and make
+modifications to match ACLs used in your organization.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+margin-bottom:0in;margin-left:1.0in;margin-bottom:.0001pt;text-indent:-.25in'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>The model_check_template script checks the model of a device when
+passed the output of show inventory</p>
+
+<p class=MsoListParagraphCxSpLast style='margin-bottom:0in;margin-bottom:.0001pt;
+text-indent:-.25in'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Once you have constructed your Parser modules, open exam.txt and list
+them one by one. RAMEN-Parser will execute each module on each device’s concatenated
+command output. </p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>If you
+create a parser module that would be beneficial to the community, please
+consider uploading at RAMEN’s Github page. RAMEN will become increasingly
+powerful as the community adds to its collection of tools.</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>-Use RAMEN’s
+batch mode</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>Batch mode
+is used when you need to run unique commands against multiple devices. To use batch
+mode, create a CSV file with two columns. The first column lists device IPs while
+the second column lists commands to run on the devices. The SSH session is held
+open if multiple commands are executed on a device sequentially. It is also
+possible to stuff multiple commands within a cell if you desire to do so. Output
+is saved in RAMEN’s normal CSV format. </p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>Use batch
+mode to clean up spurious SNMP strings:</p>
+
+<p class=MsoListParagraphCxSpFirst style='margin-bottom:0in;margin-bottom:.0001pt;
+text-indent:-.25in'>1)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>We’ll be changing device configs, select some devices from your lab. </p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-bottom:0in;margin-bottom:
+.0001pt;text-indent:-.25in'>2)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>On these devices, configure your standard SNMP string and some extra
+strings which should be removed. </p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-bottom:0in;margin-bottom:
+.0001pt;text-indent:-.25in'>3)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Navigate to RAMEN\ParserModules and edit snmp_check_template.py</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-bottom:0in;margin-bottom:
+.0001pt;text-indent:-.25in'>4)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>In this file, change the snmp_command variable to be correct for your
+environment and save the file.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-bottom:0in;margin-bottom:
+.0001pt;text-indent:-.25in'>5)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Edit script.txt to include the single command “show running-config”.
+Save the file.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-bottom:0in;margin-bottom:
+.0001pt;text-indent:-.25in'>6)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Edit devices.txt to include the IPs of your selected lab devices.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-bottom:0in;margin-bottom:
+.0001pt;text-indent:-.25in'>7)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Edit exam.txt to include the single module name snmp_check_template</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-bottom:0in;margin-bottom:
+.0001pt;text-indent:-.25in'>8)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Execute: python RAMEN-Exec.py -script script.txt -devices devices.txt
+-parse “-input lastrun.csv -output snmp_state.csv -exam exam.txt”</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-bottom:0in;margin-bottom:
+.0001pt'>RAMEN-Exec will collect the running-config from the devices you’ve
+specified and pass it to RAMEN-Parser. Parser will return the “no’d” command
+for each spurious SNMP string found.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-bottom:0in;margin-bottom:
+.0001pt;text-indent:-.25in'>9)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Edit snmp_state.csv in your spreadsheet editor of choice and remove
+devices with Validity of “Ok”. Inspect the contents of the Spurious column to
+ensure it is correct. Remember to toggle text wrapping to see all lines in each
+cell. Finally, delete the Exam, Validity, Comment, and Fixit Script columns.
+Save this as snmp_batch_job.csv. This leaves two columns, one with device IPs
+and the other with commands, perfect for RAMEN’s batch mode. </p>
+
+<p class=MsoListParagraphCxSpLast style='margin-bottom:0in;margin-bottom:.0001pt;
+text-indent:-.25in'>10)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span>Execute:
+python RAMEN-Exec.py -batch snmp_batch_job.csv<br>
+RAMEN-Exec will login to each device and run the no’d commands returned by the
+Parser’s check module. This will remove the spurious SNMP strings from your lab
+switches. </p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>-Scripts
+within scripts and controlling execution</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>Within your
+main script, it is possible to run additional scripts whose results can be used
+to control execution of your main script. For example, you can make a config
+change and then run a ping test to validate the change. Other possible use
+cases include running a device health check before making changes, executing a
+config backup, or validating certain assumptions about the environment. </p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>To use this
+feature, prefix a script line with “&gt;&gt;” and then specify a command or
+script name, an exam file or exam module, and optionally “quit”, “skip”, or
+“continue”. If the Parser found a problem in the command’s output, this keyword
+determines whether the main script should stop completely, stop on this device
+but continue on the next device, or continue on the current device despite the
+failure. The default action is to quit. </p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>The example
+below calls a script named health_check_script.txt which is executed. This
+script collects the output of show process cpu and show log. Its results are
+then passed to RAMEN-Parser which processes the script output with the checks
+specified in health_exam.txt. Those checks report failure if CPU usage is above
+70% or if tracebacks are found in the log. By specifying the “skip” keyword,
+we’ve chosen for execution to stop on this device but continue on the next
+device if either of these conditions are true. If the health check found no
+issues, the configure section is executed. Finally, once done configuring, it
+will execute the ping 8.8.8.8 command on the device and validate the ping
+response with the ping_check module. If the ping fails, the script will stop
+and not execute on other devices. </p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>&nbsp;</p>
+
+<p class=MsoListParagraphCxSpFirst style='margin-bottom:0in;margin-bottom:.0001pt;
+text-indent:-.25in'>1)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Place the text below in script.txt and make sure devices.txt still
+contains the IPs of your lab devices. </p>
+
+<p class=MsoListParagraphCxSpLast style='margin-bottom:0in;margin-bottom:.0001pt'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>&gt;&gt;health_check_script.txt,health_check_exam.txt,skip</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>configure
+terminal</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>interface
+gig0/1</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>description
+***Test***</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>end</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>&gt;&gt;ping
+8.8.8.8,ping_check,quit</p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'>&nbsp;</p>
+
+<p class=MsoListParagraph style='margin-bottom:0in;margin-bottom:.0001pt;
+text-indent:-.25in'>2)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Execute: python RAMEN-Exec.py -script script.txt -devices devices.txt </p>
+
+</div>
+
+</body>
+
+</html>
